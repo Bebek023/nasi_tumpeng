@@ -26,7 +26,7 @@
         <a class="nav-link" href="#">Pesanan  <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Pembayaran</a>
+        <a class="nav-link" href="<?php echo site_url(); ?>/pembayaran">Pembayaran</a>
       </li>
     </ul>
     <?php echo $this->session->userdata('nama_pegawai') ?>
@@ -41,24 +41,26 @@
     <div id="accordion">
       <?php foreach ($data as $value): ?>
           <div class="card">
-            <div class="card-header" id="headingOne">
+            <div class="card-header" id="heading<?php echo $value->id_pesanan?>">
               <h5 class="mb-0">
-                <button class="btn btn-link" data-toggle="collapse" data-target="#collapse<?php echo $value->id_pesanan?>" aria-expanded="true" aria-controls="collapseOne">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapse<?php echo $value->id_pesanan?>" aria-expanded="false" aria-controls="collapse<?php echo $value->id_pesanan?>">
                   Meja <?php echo $value->no_meja ?> - <?php echo $value->nama_pelanggan ?> - <?php echo $value->status_pesanan ?>
                 </button>
               </h5>
             </div>
-            <div id="collapse<?php echo $value->id_pesanan?>" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div id="collapse<?php echo $value->id_pesanan?>" class="collapse" aria-labelledby="heading<?php echo $value->id_pesanan?>" data-parent="#accordion">
               <div class="card-body">
-                <table>
-                  <tr>
-                    <td>Nama menu</td>
-                    <td>jumlah pesan</td>
-                  </tr>
+                <table class="table table-sm">
+                  <thead>
+                    <tr>
+                      <th scope="col">Nama menu</td>
+                      <th scope="col">jumlah pesan</td>
+                    </tr>
+                  </thead>
                   <?php
                     foreach (${'data'.$x} as $val): ?>
                     <tr>
-                      <td><?php echo $val->nama_menu ?></td>
+                      <td scope="row"><?php echo $val->nama_menu ?></td>
                       <td><?php echo $val->jumlah_pesan ?></td>
                     </tr>
                     <?php
@@ -68,7 +70,8 @@
                    <a class="btn btn-primary" href="<?php echo site_url() ?>/pesanan/view_tambah_pesanan?id=<?php echo $value->id_pesanan?>" role="button">Tambah pesanan</a>
                    <a class="btn btn-primary" href="<?php echo site_url() ?>/pesanan/#" role="button">Ubah pesanan</a>
                    <a class="btn btn-primary" href="<?php echo site_url() ?>/pesanan/#" role="button">Hapus pesanan</a>
-                   <a class="btn btn-primary" href="<?php echo site_url() ?>/pesanan/#" role="button">Selesaikan pesanan</a>
+                   <a class="btn btn-primary" href="<?php echo site_url() ?>/pesanan/selesai_pesanan?id=<?php echo $value->id_pesanan ?>" role="button">Selesaikan pesanan</a>
+                   <a class="btn btn-primary" href="<?php echo site_url() ?>/pembayaran/view_tambah_bayar?id=<?php echo $value->id_pesanan?>&no=<?php echo $value->no_meja ?>" role="button">Bayar</a>
                 </table>
               </div>
             </div>

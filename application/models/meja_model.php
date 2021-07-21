@@ -7,6 +7,11 @@
           $query = $this->db->query("select * from meja");
           return $query->result();
       }
+      public function meja_isi()
+      {
+          $query = $this->db->query("select * from meja where status='Terisi'");
+          return $query->result();
+      }
       public function update($bowl)
       {
           $this->db->set('status', $bowl['status']);

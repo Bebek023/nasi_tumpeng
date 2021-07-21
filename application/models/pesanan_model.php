@@ -14,7 +14,7 @@
       }
       public function data_per_pesanan($id)
       {
-          $query = $this->db->query("select m.nama_menu, d.jumlah_pesan from detail d inner join menu m on d.kd_menu=m.kd_menu where d.id_pesanan=". $id);
+          $query = $this->db->query("select d.kd_menu, m.nama_menu, d.jumlah_pesan, m.harga_menu, (d.jumlah_pesan * m.harga_menu) as total_harga from detail d inner join menu m on d.kd_menu=m.kd_menu where d.id_pesanan=". $id);
           return $query->result();
       }
       public function tambah($bowl, $id_pelanggan)
@@ -39,5 +39,11 @@
           $this->db->set($array);
           $this->db->where($arr);
           $this->db->update('detail');
+      }
+      public function ubah_status($id)
+      {
+          $this->db->set('status_pesanan', "Selesai");
+          $this->db->where('id_pesanan', $id);
+          $this->db->update('pemesanan');
       }
   }

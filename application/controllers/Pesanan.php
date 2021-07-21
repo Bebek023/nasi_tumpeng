@@ -33,7 +33,7 @@ class Pesanan extends CI_Controller
     public function view_pilih_menu()
     {
         if (null == $this->input->get('id')) {
-            $menu['meja'] = $this->meja_model->data();
+            $menu['meja'] = $this->meja_model->meja_isi();
         }
         $kd = $this->input->get('kd');
         $menu['data'] = $this->menu_model->get_menu($kd);
@@ -63,5 +63,11 @@ class Pesanan extends CI_Controller
         }
         $this->menu_model->update($bowl);
         redirect('pesanan/view_tambah_pesanan');
+    }
+    public function selesai_pesanan()
+    {
+        $id = $this->input->get('id');
+        $this->pesanan_model->ubah_status($id);
+        redirect('pesanan');
     }
 }

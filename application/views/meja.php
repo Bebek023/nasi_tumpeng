@@ -26,7 +26,7 @@
         <a class="nav-link" href="<?php echo site_url(); ?>/pesanan">Pesanan</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Pembayaran</a>
+        <a class="nav-link" href="<?php echo site_url(); ?>/pembayaran">Pembayaran</a>
       </li>
     </ul>
     <?php echo $this->session->userdata('nama_pegawai') ?>
@@ -38,15 +38,17 @@
   </div>
 </nav>
     List Meja
-    <table>
+    <table class="table table-hover">
+      <thead>
       <tr>
-        <td>No Meja</td>
-        <td>Status</td>
-        <td>Aksi</td>
+        <th scope="col">No Meja</td>
+        <th scope="col">Status</td>
+        <th scope="col">Aksi</td>
       </tr>
+    </thead>
       <?php foreach ($data as $value): ?>
         <tr>
-          <td><?php echo $value->no_meja ?></td>
+          <td scope="row"><?php echo $value->no_meja ?></td>
           <td><?php echo $value->status ?></td>
           <td>
             <!-- Button trigger modal -->

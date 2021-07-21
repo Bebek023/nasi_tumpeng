@@ -15,7 +15,6 @@ class Login extends CI_Controller
     {
         $data = array('id_pegawai' => $this->input->post('id_pegawai', true), 'password' => $this->input->post('password', true));
         $res = $this->login_model->login_datacheck($data);
-        $query = $res->result();
 
         if ($res->num_rows() == 1) {
             foreach ($res->result() as $value) {

@@ -22,11 +22,11 @@
           <li class="nav-item">
             <a class="nav-link" href="<?php echo site_url(); ?>/meja">Meja</a>
           </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="<?php echo site_url(); ?>/pesanan">Pesanan  <span class="sr-only">(current)</span></a>
-          </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Pembayaran</a>
+            <a class="nav-link" href="<?php echo site_url(); ?>/pesanan">Pesanan</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Pembayaran  <span class="sr-only">(current)</span></a>
           </li>
         </ul>
         <?php echo $this->session->userdata('nama_pegawai') ?>
@@ -37,33 +37,31 @@
         <?php echo form_close() ?>
       </div>
     </nav>
-    <table>
-
-    </table>
-    List Menu
-    <table class="table table-hover">
+    Nama : <?php echo $nama_pelanggan ?>
+    <br>
+    No meja : <?php echo $no ?>
+    <table class="table">
       <thead>
         <tr>
           <th scope="col">nama menu</td>
-          <th scope="col">harga</td>
-          <th scope="col">stok</td>
-          <th scope="col">aksi</td>
+          <th scope="col">jumlah pesan</td>
+          <th scope="col">harga satuan</td>
+          <th scope="col">total harga</td>
         </tr>
       </thead>
       <?php foreach ($data as $value): ?>
         <tr>
           <td scope="row"><?php echo $value->nama_menu ?></td>
+          <td><?php echo $value->jumlah_pesan ?></td>
           <td><?php echo $value->harga_menu ?></td>
-          <td><?php echo $value->stok_menu ?></td>
-          <?php
-          if (isset($id)) {?>
-            <td><a class="btn btn-primary" href="<?php echo base_url() ?>index.php/pesanan/view_pilih_menu?kd=<?php echo $value->kd_menu?>&id=<?php echo $id ?>" role="button">Pilih</a></td>
-          <?php } else {?>
-            <td><a class="btn btn-primary" href="<?php echo base_url() ?>index.php/pesanan/view_pilih_menu?kd=<?php echo $value->kd_menu?>" role="button">Pilih</a></td>
-          <?php }
-          ?>
+          <td><?php echo $value->total_harga ?></td>
         </tr>
       <?php endforeach; ?>
+      <tr>
+        <td colspan="3">Subtotal</td>
+        <td><?php echo $subtotal ?></td>
+      </tr>
     </table>
+    <a class="btn btn-primary" href="<?php echo site_url() ?>/pembayaran/tambah_bayar?id=<?php echo $id?>&sub=<?php echo $subtotal?>" role="button">Bayar</a>
   </body>
 </html>

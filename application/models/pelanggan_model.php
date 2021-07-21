@@ -8,4 +8,9 @@
           $insert_id = $this->db->insert_id();
           return $insert_id;
       }
+      public function get_nama($bowl)
+      {
+          $query = $this->db->query("select nama_pelanggan from pelanggan inner join pemesanan on pelanggan.id_pelanggan=pemesanan.id_pelanggan where pemesanan.id_pesanan=".$bowl['id']);
+          return $query->row();
+      }
   }
