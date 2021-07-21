@@ -2,11 +2,18 @@
 <html lang="id" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Login</title>
   </head>
   <body>
     <?php echo form_open("login/login_check") ?>
     <table align="center">
+      <tr></tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <center>Login</center>
       <tr>
         <td>ID Pegawai</td>
         <td>
