@@ -53,7 +53,7 @@
           <td><?php echo $value->waktu_pembayaran ?></td>
           <td><?php echo $value->subtotal ?></td>
           <td>
-            <a class="btn btn-primary" href="<?php echo site_url() ?>/pembayaran/#" role="button">Detail</a>
+            <a class="btn btn-primary" href="<?php echo site_url() ?>/pembayaran/view_tambah_bayar?id=<?php echo $value->id_pesanan ?>" role="button">Detail</a>
           </td>
         </tr>
       <?php endforeach; ?>

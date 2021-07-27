@@ -32,7 +32,7 @@ class Login extends CI_Controller
             // } elseif ($this->session->userdata('jabatan')=='Kasir') {
             //     echo "Kasir";
             // }
-            redirect('menu');
+            redirect('pesanan');
         } else {
             echo "Login Failed";
         }

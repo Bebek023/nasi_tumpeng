@@ -26,7 +26,7 @@
             <a class="nav-link" href="<?php echo site_url(); ?>/pesanan">Pesanan</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="#">Pembayaran  <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="<?php echo site_url(); ?>/pembayaran">Pembayaran  <span class="sr-only">(current)</span></a>
           </li>
         </ul>
         <?php echo $this->session->userdata('nama_pegawai') ?>
@@ -62,6 +62,8 @@
         <td><?php echo $subtotal ?></td>
       </tr>
     </table>
-    <a class="btn btn-primary" href="<?php echo site_url() ?>/pembayaran/tambah_bayar?id=<?php echo $id?>&sub=<?php echo $subtotal?>" role="button">Bayar</a>
+    <?php if (isset($bayar)): ?>
+      <a class="btn btn-primary" href="<?php echo site_url() ?>/pembayaran/tambah_bayar?id=<?php echo $id?>&sub=<?php echo $subtotal?>" role="button">Bayar</a>
+    <?php endif; ?>
   </body>
 </html>

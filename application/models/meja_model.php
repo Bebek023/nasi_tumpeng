@@ -9,7 +9,7 @@
       }
       public function meja_isi()
       {
-          $query = $this->db->query("select * from meja where status='Terisi'");
+          $query = $this->db->query("select * from meja where status='Kosong'");
           return $query->result();
       }
       public function update($bowl)

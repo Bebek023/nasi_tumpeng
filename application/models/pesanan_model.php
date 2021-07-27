@@ -14,18 +14,18 @@
       }
       public function data_per_pesanan($id)
       {
-          $query = $this->db->query("select d.kd_menu, m.nama_menu, d.jumlah_pesan, m.harga_menu, (d.jumlah_pesan * m.harga_menu) as total_harga from detail d inner join menu m on d.kd_menu=m.kd_menu where d.id_pesanan=". $id);
+          $query = $this->db->query("select d.kd_menu, m.nama_menu, d.jumlah_pesan, m.harga_menu, (d.jumlah_pesan * m.harga_menu) as total_harga, d.id_detail from detail d inner join menu m on d.kd_menu=m.kd_menu where d.id_pesanan=". $id);
           return $query->result();
       }
       public function tambah($bowl, $id_pelanggan)
       {
-          $this->db->query("insert into pemesanan(waktu_pesanan, id_pelanggan, no_meja, status_pesanan) values(now(), ".$id_pelanggan.", ".$bowl['no_meja'].", 'Belum selesai');");
+          $this->db->query("insert into pemesanan(waktu_pesanan, id_pelanggan, no_meja, status_pesanan, id_pegawai) values(now(), ".$id_pelanggan.", ".$bowl['no_meja'].", 'Belum selesai', ".$bowl['id_pegawai'].");");
           $insert_id = $this->db->insert_id();
           return $insert_id;
       }
       public function tambah_detail($bowl, $id_pesanan)
       {
-          $query = $this->db->query("insert into detail(id_pesanan, kd_menu, id_pegawai, jumlah_pesan) values(".$id_pesanan. ", '".$bowl['kd_menu']."', ".$bowl['id_pegawai'].", ".$bowl['stok_pesan'].");");
+          $query = $this->db->query("insert into detail(id_pesanan, kd_menu, jumlah_pesan) values(".$id_pesanan. ", '".$bowl['kd_menu']."', ".$bowl['stok_pesan'].");");
       }
       public function data_menu_ganda($id_pesanan, $bowl)
       {
@@ -45,5 +45,15 @@
           $this->db->set('status_pesanan', "Selesai");
           $this->db->where('id_pesanan', $id);
           $this->db->update('pemesanan');
+      }
+      public function get_meja($id)
+      {
+          $query = $this->db->query("select no_meja from pemesanan where id_pesanan=".$id."");
+          return $query->row();
+      }
+      public function delete($bowl)
+      {
+          $this->db->where('id_pesanan', $bowl['id_pesanan']);
+          $this->db->delete('pemesanan');
       }
   }

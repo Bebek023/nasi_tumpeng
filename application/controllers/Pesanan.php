@@ -8,6 +8,7 @@ class Pesanan extends CI_Controller
         $this->load->model('pesanan_model');
         $this->load->model('menu_model');
         $this->load->model('meja_model');
+        $this->load->model('detail_model');
         $this->load->model('pelanggan_model');
     }
     public function index()
@@ -45,8 +46,10 @@ class Pesanan extends CI_Controller
         $bowl['id_pegawai'] = $this->input->post('id_pegawai');
         $bowl['stok_menu'] =  $this->input->post('stok_skrg') - $this->input->post('stok');
         $bowl['stok_pesan'] = $this->input->post('stok');
+        $bowl['status'] = "Terisi";
         if (null !== $this->input->post('id_pesanan')) {
             $id_pesanan = $this->input->post('id_pesanan');
+            $bowl['no_meja'] = $this->pesanan_model->get_meja($id_pesanan);
             $res = $this->pesanan_model->data_menu_ganda($id_pesanan, $bowl);
             if ($res) {
                 $bowl['stok_pesan'] = $bowl['stok_pesan'] + $res;
@@ -62,12 +65,34 @@ class Pesanan extends CI_Controller
             $this->pesanan_model->tambah_detail($bowl, $id_pesanan);
         }
         $this->menu_model->update($bowl);
+        $this->meja_model->update($bowl);
         redirect('pesanan/view_tambah_pesanan');
     }
     public function selesai_pesanan()
     {
         $id = $this->input->get('id');
         $this->pesanan_model->ubah_status($id);
+        redirect('pesanan');
+    }
+    public function ubah_pesanan()
+    {
+        $get['id'] = $this->input->get('id');
+        $get['data'] = $this->pesanan_model->data_per_pesanan($get['id']);
+        $temp = $this->pelanggan_model->get_nama_no($get);
+        foreach ($temp as $value) {
+            $get['nama_pelanggan'] = $value->nama_pelanggan;
+            $get['no'] = $value->no_meja;
+        }
+        $this->load->view('ubah_pesanan', $get);
+    }
+    public function hapus_pesanan()
+    {
+        $bowl['id_pesanan'] = $this->input->post('id_pesanan');
+        $bowl['no_meja'] = $this->input->post('no_meja');
+        $bowl['status'] = "Kosong";
+        $this->meja_model->update($bowl);
+        $this->detail_model->delete_pesanan($bowl);
+        $this->pesanan_model->delete($bowl);
         redirect('pesanan');
     }
 }
