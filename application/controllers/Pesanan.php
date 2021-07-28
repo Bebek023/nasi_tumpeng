@@ -51,8 +51,8 @@ class Pesanan extends CI_Controller
             $id_pesanan = $this->input->post('id_pesanan');
             $bowl['no_meja'] = $this->pesanan_model->get_meja($id_pesanan);
             $res = $this->pesanan_model->data_menu_ganda($id_pesanan, $bowl);
-            if ($res) {
-                $bowl['stok_pesan'] = $bowl['stok_pesan'] + $res;
+            if ($res->jumlah_pesan) {
+                $bowl['stok_pesan'] = $bowl['stok_pesan'] + $res->jumlah_pesan;
                 $this->pesanan_model->update_jumlah_pesan($bowl, $id_pesanan);
             } else {
                 $this->pesanan_model->tambah_detail($bowl, $id_pesanan);
@@ -63,9 +63,9 @@ class Pesanan extends CI_Controller
             $id_pelanggan = $this->pelanggan_model->tambah($bowl);
             $id_pesanan = $this->pesanan_model->tambah($bowl, $id_pelanggan);
             $this->pesanan_model->tambah_detail($bowl, $id_pesanan);
+            $this->meja_model->update($bowl);
         }
         $this->menu_model->update($bowl);
-        $this->meja_model->update($bowl);
         redirect('pesanan/view_tambah_pesanan');
     }
     public function selesai_pesanan()
