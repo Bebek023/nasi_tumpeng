@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color:#f5ecef;
+    background-color:hsl(0, 45%, 98%);
 }
 
 .container {
@@ -13,7 +13,7 @@ body {
 }
 
 .box {
-    background-color: #f5ecef;
+    background-color: hsl(0, 45%, 98%);
     border:1px solid #ccc;
     padding:15px;
     border:none;

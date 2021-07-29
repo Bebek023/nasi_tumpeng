@@ -11,7 +11,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar navbar-light" style="background-color: #dadce0">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -71,7 +71,8 @@
       </tr>
     </table>
     <?php if (isset($bayar)): ?>
-      <a class="btn btn-primary" href="<?php echo site_url() ?>/pembayaran/tambah_bayar?id=<?php echo $id?>&sub=<?php echo $subtotal?>" role="button">Bayar</a>
+      <?php echo str_repeat('&nbsp;', 15); ?><a class="btn btn-primary" href="<?php echo site_url() ?>/pembayaran/tambah_bayar?id=<?php echo $id?>&sub=<?php echo $subtotal?>" role="button">Bayar</a>
     <?php endif; ?>
   </body>
 </html>
+
