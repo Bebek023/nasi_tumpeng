@@ -1,0 +1,28 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+}
+
+body {
+    background-color: #f5ecef; 
+}
+
+table.center {
+    margin: 30px;
+    width:55%;
+}
+
+thead {
+    border-collapse: collapse;
+    border: 4px solid rgb(200, 200, 200);
+    background-color: #fff;
+    color: #070606;
+}
+
+table.coba {
+    margin-top: 30px;
+    margin-bottom: 0px;
+    padding: 0;
+}
+
