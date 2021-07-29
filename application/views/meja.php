@@ -32,7 +32,7 @@
     <?php echo $this->session->userdata('nama_pegawai') ?>
     -
     <?php echo $this->session->userdata('jabatan') ?>
-    <?php echo form_open("login/logout") ?>
+    <?php echo str_repeat('&nbsp;', 5); ?><?php echo form_open("login/logout") ?>
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
     <?php echo form_close() ?>
   </div>

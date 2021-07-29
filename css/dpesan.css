@@ -1,0 +1,13 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+}
+
+body {
+    background-color: #fcf7f7; 
+}
+
+form {
+    margin-left: 50px;
+}
