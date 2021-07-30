@@ -54,6 +54,8 @@
       <input type="text" name="nama_pelanggan" placeholder="nama pelanggan">
     <?php } else {?>
       <input type="hidden" name="id_pesanan" value="<?php echo $this->input->get('id') ?>">
+    <?php } ?>
+    <br>
     <?php foreach ($data as $value): ?>
       <input type="hidden" name="kd_menu" value="<?php echo $value->kd_menu?>">
       <input type="hidden" name="stok_skrg" value="<?php echo $value->stok_menu?>">
