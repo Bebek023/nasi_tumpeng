@@ -32,12 +32,8 @@
         <?php echo $this->session->userdata('nama_pegawai') ?>
         -
         <?php echo $this->session->userdata('jabatan') ?>
-<<<<<<< HEAD
-        <?php echo form_open("login/logout") ?>
-=======
         <?php echo str_repeat('&nbsp;', 5); ?><?php echo form_open("login/logout") ?>
 
->>>>>>> f4d0afc4c408775c57867d8da47a2fb0f4f4f4cd
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
         <?php echo form_close() ?>
       </div>
@@ -72,4 +68,3 @@
     <?php endif; ?>
   </body>
 </html>
-

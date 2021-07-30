@@ -44,33 +44,6 @@
     <table>
 
     </table>
-<<<<<<< HEAD
-    <div class="section">
-      <div class="container">
-        <h3>List Menu</h3>
-        <div class="box">
-          <?php foreach ($data as $value): ?>
-            <div class="col-4">
-              <?php
-                if (isset($id)) {?>
-                  <a href="<?php echo base_url() ?>index.php/pesanan/view_pilih_menu?kd=<?php echo $value->kd_menu?>&id=<?php echo $id ?>" role="button">                  
-                  <img src="<?php echo base_url(). '/fotomenu/' . $value->foto_menu; ?>">
-                  </a>
-                <?php } else {?>
-                  <a href="<?php echo base_url() ?>index.php/pesanan/view_pilih_menu?kd=<?php echo $value->kd_menu?>" role="button">                  
-                  <img src="<?php echo base_url(). '/fotomenu/' . $value->foto_menu; ?>">
-                  </a>
-                <?php }
-                ?>
-                <p class="nama"><?php echo $value->nama_menu ?></p>
-                <p class="harga"><?php echo $value->harga_menu ?></p>
-                <p class="stok"><?php echo $value->stok_menu ?></p>
-            </div>
-          <?php endforeach; ?>
-        </div>
-      </div>
-    </div>
-=======
     <div class="box">
     <?php echo str_repeat('&nbsp;', 5); ?>
     <h3>List Menu</h3>
@@ -99,6 +72,5 @@
         </tr>
       <?php endforeach; ?>
     </table>
->>>>>>> f4d0afc4c408775c57867d8da47a2fb0f4f4f4cd
   </body>
 </html>

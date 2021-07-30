@@ -37,10 +37,6 @@
     <?php echo form_close() ?>
   </div>
 </nav>
-<<<<<<< HEAD
-    List Pesanan yang Sudah Dibayar
-    <table class="table table-hover">
-=======
     <table>
     </table>
     <div class="box">
@@ -50,7 +46,6 @@
     <br>
     <table class="center" rules="rows">
     <tr>
->>>>>>> f4d0afc4c408775c57867d8da47a2fb0f4f4f4cd
       <thead>
         <tr>
           <th scope="col">no transaksi</td>
