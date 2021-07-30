@@ -47,22 +47,19 @@
             <div class="col-4">
 
             <?php
-              if (($this->session->userdata('jabatan')) == 'koki') {?>
+              if (($this->session->userdata('jabatan')) == 'Koki') {?>
                 <button class="stok" type="button" data-toggle="modal" data-target="#modalStok<?php echo $value->kd_menu ?>">
                 <img src="<?php echo base_url(). '/fotomenu/' . $value->foto_menu; ?>"> 
                 </button>
-                  <p class="nama"><?php echo $value->nama_menu ?></p>
-                  <p class="harga"><?php echo $value->harga_menu ?></p>
-                  <p class="stok"><?php echo $value->stok_menu ?></p>
-              <?php } else {?>
+              <?php } elseif (($this->session->userdata('jabatan')) == 'Pelayan' || ($this->session->userdata('jabatan')) == 'Kasir') {?>
                 <button class="stok" type="button" data-target="<?php echo $value->kd_menu ?>">
                 <img src="<?php echo base_url(). '/fotomenu/' . $value->foto_menu; ?>"> 
                 </button>
-                  <p class="nama"><?php echo $value->nama_menu ?></p>
-                  <p class="harga"><?php echo $value->harga_menu ?></p>
-                  <p class="stok"><?php echo $value->stok_menu ?></p>
-              <?php }?>
-            </div>
+                <?php }?>
+                <p class="nama"><?php echo $value->nama_menu ?></p>
+                <p class="harga"><?php echo $value->harga_menu ?></p>
+                <p class="stok"><?php echo $value->stok_menu ?></p>
+              </div>
             <!-- Modal -->
             <div class="modal fade" id="modalStok<?php echo $value->kd_menu ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
               <div class="modal-dialog modal-dialog-centered" role="document">
