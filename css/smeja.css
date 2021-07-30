@@ -1,0 +1,30 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+}
+.box {
+    background-color: #fff;
+    padding:10px;
+    box-sizing: border-box;
+    margin: 25px 0 25px 0;
+}
+.box:after {
+    content: '';
+    display: block;
+    clear: both;   
+}
+.meja {
+    height: 250px;
+    width: 250px;
+    float: left;
+    padding: 10px;
+}
+.tombol {
+    width: 150px;
+    height: 150px;;
+}
+.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

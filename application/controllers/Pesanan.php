@@ -63,9 +63,9 @@ class Pesanan extends CI_Controller
             $id_pelanggan = $this->pelanggan_model->tambah($bowl);
             $id_pesanan = $this->pesanan_model->tambah($bowl, $id_pelanggan);
             $this->pesanan_model->tambah_detail($bowl, $id_pesanan);
+            $this->meja_model->update($bowl);
         }
         $this->menu_model->update($bowl);
-        // $this->meja_model->update($bowl);
         redirect('pesanan/view_tambah_pesanan');
     }
     public function selesai_pesanan()

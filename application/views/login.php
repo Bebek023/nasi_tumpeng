@@ -25,10 +25,10 @@
             <?php echo form_open("login/login_check") ?>
             <div class="col-md-12">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Id Pegawai" name="id_pegawai">
+                <input type="text" name="id_pegawai" class="form-control" placeholder="Id Pegawai">
               </div>
               <div class="form-group">
-                <input type="password" class="form-control" placeholder="Password" name="password">
+                <input type="password" name="password" class="form-control" placeholder="Password">
               </div>
               <button type="submit" class="btn btn-primary">Log In</button>
             </div>

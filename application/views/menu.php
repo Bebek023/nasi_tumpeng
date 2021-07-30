@@ -11,7 +11,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </head>
   <body>
-  <nav class="navbar navbar-expand-lg navbar navbar-light" style="background-color: #dadce0">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -34,7 +34,7 @@
     <?php echo $this->session->userdata('nama_pegawai') ?>
     -
     <?php echo $this->session->userdata('jabatan') ?>
-    <?php echo str_repeat('&nbsp;', 5); ?><?php echo form_open("login/logout") ?>
+    <?php echo form_open("login/logout") ?>
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
     <?php echo form_close() ?>
   </div>
@@ -45,12 +45,23 @@
         <div class="box">
           <?php foreach ($data as $value): ?>
             <div class="col-4">
-            <button class="stok" type="button" data-toggle="modal" data-target="#modalStok<?php echo $value->kd_menu ?>">
-            <img src="<?php echo base_url(). '/fotomenu/' . $value->foto_menu; ?>"> 
-            </button>
-              <p class="nama"><?php echo $value->nama_menu ?></p>
-              <p class="harga"><?php echo $value->harga_menu ?></p>
-              <p class="stok"><?php echo $value->stok_menu ?></p>
+
+            <?php
+              if (($this->session->userdata('jabatan')) == 'koki') {?>
+                <button class="stok" type="button" data-toggle="modal" data-target="#modalStok<?php echo $value->kd_menu ?>">
+                <img src="<?php echo base_url(). '/fotomenu/' . $value->foto_menu; ?>"> 
+                </button>
+                  <p class="nama"><?php echo $value->nama_menu ?></p>
+                  <p class="harga"><?php echo $value->harga_menu ?></p>
+                  <p class="stok"><?php echo $value->stok_menu ?></p>
+              <?php } else {?>
+                <button class="stok" type="button" data-target="<?php echo $value->kd_menu ?>">
+                <img src="<?php echo base_url(). '/fotomenu/' . $value->foto_menu; ?>"> 
+                </button>
+                  <p class="nama"><?php echo $value->nama_menu ?></p>
+                  <p class="harga"><?php echo $value->harga_menu ?></p>
+                  <p class="stok"><?php echo $value->stok_menu ?></p>
+              <?php }?>
             </div>
             <!-- Modal -->
             <div class="modal fade" id="modalStok<?php echo $value->kd_menu ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
