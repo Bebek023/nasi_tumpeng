@@ -1,0 +1,37 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+}
+body {
+    background-color: #f8f8f8;
+}
+#bg-login {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+.box-login {
+    width: 300px;
+    height: 200px;
+    border:none;
+    padding: 15px;
+    box-sizing: border-box;
+}
+.box-login h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+.input-control {
+    width: 268px;
+    padding: 8px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+.submit-control {
+    padding: 3px 18px;
+    background-color: #2154F3;
+    color: #f8f8f8;
+    border:none;
+}

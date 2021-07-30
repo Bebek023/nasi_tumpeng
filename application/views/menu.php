@@ -46,7 +46,7 @@
           <?php foreach ($data as $value): ?>
             <div class="col-4">
             <button class="stok" type="button" data-toggle="modal" data-target="#modalStok<?php echo $value->kd_menu ?>">
-            <img src="<?php echo base_url(). '/fotomenu/' . $value->foto_menu; ?>">
+            <img src="<?php echo base_url(). '/fotomenu/' . $value->foto_menu; ?>"> 
             </button>
               <p class="nama"><?php echo $value->nama_menu ?></p>
               <p class="harga"><?php echo $value->harga_menu ?></p>

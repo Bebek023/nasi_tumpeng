@@ -7,7 +7,7 @@
     <style media="screen">
     .vertical-center {
       min-height: 100%;
-      min-height: 100vh;
+      min-height: 100vh; 
       display: flex;
       align-items: center;
       }
@@ -25,17 +25,10 @@
             <?php echo form_open("login/login_check") ?>
             <div class="col-md-12">
               <div class="form-group">
-<<<<<<< Updated upstream
-                <input type="text" name="id_pegawai" class="form-control" placeholder="Id Pegawai">
+                <input type="text" class="form-control" placeholder="Id Pegawai" name="id_pegawai">
               </div>
               <div class="form-group">
-                <input type="password" name="password" class="form-control" placeholder="Password">
-=======
-                <input type="text" class="form-control" name="id pegawai" placeholder="Id Pegawai">
-              </div>
-              <div class="form-group">
-                <input type="password" class="form-control" name="password" placeholder="Password">
->>>>>>> Stashed changes
+                <input type="password" class="form-control" placeholder="Password" name="password">
               </div>
               <button type="submit" class="btn btn-primary">Log In</button>
             </div>

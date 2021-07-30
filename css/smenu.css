@@ -3,17 +3,8 @@
     margin: 0;
     font-family: 'Quicksand', sans-serif;
 }
-
-body {
-    background-color:#f5ecef;
-}
-
-.container {
-    padding-top: 25px;
-}
-
 .box {
-    background-color: #f5ecef;
+    background-color: #fff;
     border:1px solid #ccc;
     padding:15px;
     border:none;
@@ -37,6 +28,7 @@ body {
 }
 .col-4 img {
     justify-items: center;
+    border-radius: 30px;
     width: 250px;
     border:none;
     height: 200px;
