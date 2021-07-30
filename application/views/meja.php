@@ -9,7 +9,7 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar navbar-light" style="background-color: #dadce0">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -32,7 +32,7 @@
     <?php echo $this->session->userdata('nama_pegawai') ?>
     -
     <?php echo $this->session->userdata('jabatan') ?>
-    <?php echo form_open("login/logout") ?>
+    <?php echo str_repeat('&nbsp;', 5); ?><?php echo form_open("login/logout") ?>
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
     <?php echo form_close() ?>
   </div>

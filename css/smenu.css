@@ -3,8 +3,22 @@
     margin: 0;
     font-family: 'Quicksand', sans-serif;
 }
+<<<<<<< HEAD
 .box {
     background-color: #fff;
+=======
+
+body {
+    background-color:hsl(0, 45%, 98%);
+}
+
+.container {
+    padding-top: 25px;
+}
+
+.box {
+    background-color: hsl(0, 45%, 98%);
+>>>>>>> f4d0afc4c408775c57867d8da47a2fb0f4f4f4cd
     border:1px solid #ccc;
     padding:15px;
     border:none;
