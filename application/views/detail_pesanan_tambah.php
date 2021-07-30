@@ -39,8 +39,6 @@
         <?php echo form_close() ?>
       </div>
     </nav>
-<<<<<<< HEAD
-
       <form action="<?php echo site_url() ?>/pesanan/tambah_detail_pesanan" method="post">
         <div class="box-menu">
           <?php foreach ($data as $value): ?>
@@ -77,47 +75,5 @@
           <?php } ?>
         </div>
       </form>
-=======
-    <br><br>
-  <form action="<?php echo site_url() ?>/pesanan/tambah_detail_pesanan" method="post">
-    <?php if (null == $this->input->get('id')) { ?>
-      Nomor meja :
-      <select name="meja">
-        <?php foreach ($meja as $no): ?>
-          <option value="<?php echo $no->no_meja ?>"><?php echo $no->no_meja ?></option>
-        <?php endforeach; ?>
-      </select>
-      <br>
-      Nama pelanggan :
-      <br>
-      <input type="text" name="nama_pelanggan" placeholder="nama pelanggan">
-    <?php } else {?>
-      <input type="hidden" name="id_pesanan" value="<?php echo $this->input->get('id') ?>">
-    <?php } ?>
-    <br>
-    <?php foreach ($data as $value): ?>
-      <input type="hidden" name="kd_menu" value="<?php echo $value->kd_menu?>">
-      <input type="hidden" name="stok_skrg" value="<?php echo $value->stok_menu?>">
-      <input type="hidden" name="id_pegawai" value="<?php echo $this->session->userdata('id_pegawai')?>">
-      <br>
-      <br>
-      Nama menu :
-      <?php echo $value->nama_menu ?>
-      <br>
-      Harga :
-      <?php echo $value->harga_menu ?>
-      <br>
-      stok sisa :
-      <?php echo $value->stok_menu ?>
-      <br>
-      jumlah pesan
-      <br>
-      <input type="number" name="stok">
-      <br>
-    <?php endforeach; ?>
-    <br>
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">submit</button>
-  </form>
->>>>>>> 399e1b15e2b5f66f3588766d8b511256f39282e4
   </body>
 </html>
